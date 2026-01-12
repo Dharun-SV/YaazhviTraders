@@ -3,6 +3,7 @@ import "../assets/css/contact.css";
 import Spinner from "../components/Spinner";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "", phone: "" });
@@ -18,27 +19,35 @@ function Contact() {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch("/api/SendEmail/sendEmail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form)
-      });
-      const json = await res.json();
-      if (res.ok) {
-        toast.success("Your submission was successful!");
-        setForm({ name: "", email: "", subject: "", message: "", phone: "" });
-      } else {
-        toast.error(json?.message || "Send failed");
-      }
-    } catch (err) {
-      toast.error("Network error");
-    } finally {
-      setLoading(false);
-    }
-  };
+  e.preventDefault();
+  setLoading(true);
+
+  try {
+    const result = await emailjs.send(
+      "service_mc7bbbj",   
+      "template_d1ju4i2",  
+      {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        subject: form.subject,
+        message: form.message,
+        date: new Date().toLocaleString(),
+      },
+      "3QMH7PjxMb8Uczmk_"      
+    );
+
+    console.log(result.text);
+    toast.success("Your submission was successful!");
+    setForm({ name: "", email: "", subject: "", message: "", phone: "" });
+
+  } catch (error) {
+    console.log(error.text);
+    toast.error("Send failed");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div style={{ position: "relative" }}>
@@ -184,7 +193,7 @@ function Contact() {
                   <h4>📞 Contact</h4>
                   <p>
                     Phone: +91 8270177197 <br />
-                    Email: supportnativenature@gmail.com
+                    Email: nativenature.care@gmail.com
                   </p>
                 </div>
 
