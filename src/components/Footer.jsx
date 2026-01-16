@@ -9,11 +9,9 @@ function Footer() {
                             <div className="footer-box about-widget">
                                 <h2 className="widget-title">About us</h2>
                                 <p>
-                                    Native & Nature brings you fresh, natural juices made from
-                                    daily-picked fruits and vegetables. We prepare every juice just
-                                    2 hours before serving to ensure purity, taste, and quality.
-                                    With a focus on health, hygiene, and authenticity, we deliver
-                                    nature in every sip.
+                                    At Yaazhvi Traders, we bring you premium quality dry fruits and nuts sourced naturally.
+                                    Our products are carefully handpicked and packed to ensure freshness, taste, and health.
+                                    We are committed to delivering the goodness of nature straight to your home every day.
                                 </p>
                             </div>
                         </div>
@@ -40,11 +38,15 @@ function Footer() {
                                         <a href="/">Home</a>
                                     </li>
                                     <li>
+                                        <a href="/products">Products</a>
+                                    </li>
+                                    <li>
                                         <a href="/about">About us</a>
                                     </li>
                                     <li>
                                         <a href="/contact">Contact us</a>
                                     </li>
+
                                 </ul>
                             </div>
                         </div>
@@ -58,8 +60,8 @@ function Footer() {
                     <div className="row">
                         <div className="col-lg-6 col-md-12">
                             <p>
-                                Copyrights &copy; 2025 -{' '}
-                                <a href="">Native&Nature</a>, All Rights
+                                Copyrights &copy; 2026 -{' '}
+                                <a href="">YaazhviTraders</a>, All Rights
                                 Reserved.
                             </p>
                         </div>

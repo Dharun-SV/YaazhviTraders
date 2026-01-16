@@ -2,12 +2,18 @@ import React, { useState, useEffect } from "react";
 import '../assets/css/Navbar.css';
 import { NavLink, useLocation } from "react-router-dom"; // changed: add useLocation
 import Logo from "../assets/img/NN_Logo.png";
+import { useCart } from "./CartContext";
+import { FaShoppingCart } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import CartModal from "./CartModal";
 
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation(); // added
+  const { cart } = useCart(); 
+  const [cartOpen, setCartOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -32,12 +38,13 @@ const Navbar = () => {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <nav className={`nav ${isScrolled ? "scrolled" : ""}`}>
+  <>
+     <nav className={`nav ${isScrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
 
         <a href="/" className="logo-link-btn">
-          <img src={Logo} alt="Native & Nature Logo" className="logo-link-img" />
-          <span className="logo-link-text">Native & Nature</span>
+          {/* <img src={Logo} alt="Yaazhvi Traders Logo" className="logo-link-img" /> */}
+          <span className="logo-link-text">Yaazhvi Traders</span>
         </a>
 
         <div
@@ -56,6 +63,11 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/products">
+              Products
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/about">
               About
             </NavLink>
@@ -65,11 +77,27 @@ const Navbar = () => {
               Contact Us
             </NavLink>
           </li>
-        </ul>
+          </ul>
+          {/* <div
+            className={`cart-icon ${cartOpen ? "active" : ""}`}
+            onClick={() => setCartOpen(true)}
+          >
+            <FaShoppingCart size={26} />
+            {cart.length > 0 && (
+              <span className="cart-count">{cart.length}</span>
+            )}
+          </div> */}
+
 
       </div>
     </nav>
+     {cartOpen && <CartModal onClose={() => setCartOpen(false)} cartItems={cart} />}
+  </>
   );
 };
 
 export default Navbar;
+
+
+
+

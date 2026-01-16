@@ -233,3 +233,98 @@
         padding: 0 15px;
     }
 }
+/* --------------------------------------------------
+   Mobile One-by-One Product Cards
+-------------------------------------------------- */
+@media (max-width: 768px) {
+
+  /* Hide desktop slider */
+  .carousel-container {
+    display: none;
+  }
+
+  /* Mobile product cards */
+  .mobile-product-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .mobile-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  }
+
+  .mobile-product-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-product-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .mobile-product-card .sc-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 5px;
+  }
+
+  .mobile-product-card .sc-size {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+  }
+
+  .mobile-product-card .sc-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #F28123;
+  }
+
+  /* View More Button */
+  .text-center .btn-brand {
+    margin-top: 20px;
+    display: inline-block;
+  }
+}
+/* Product card container */
+.product-card,
+.mobile-product-card {
+  width: 220px;              /* optional – adjust if needed */
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+
+/* Image wrapper */
+.product-card img,
+.mobile-product-card img {
+  width: 100%;
+  height: 180px;          /* fixed height */
+  object-fit: contain;   /* 👈 shows FULL image */
+  background: #f8f8f8;   /* fills empty space neatly */
+  border-radius: 10px;
+}
+@media (max-width: 768px) {
+  .mobile-product-card {
+    width: 100%;          /* 👈 full container width */
+    max-width: 360px;     /* 👈 controls image size */
+    margin: 0 auto 20px;
+  }
+
+  .mobile-product-card img {
+    height: 220px;        /* 👈 bigger image */
+  }
+}

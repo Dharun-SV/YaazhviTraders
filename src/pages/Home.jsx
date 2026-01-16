@@ -3,12 +3,16 @@ import '../assets/css/Navbar.css';
 import Fresh from "../assets/img/Fresh_Poster.jpg";
 import Juice from "../assets/img/3Juice_Poster.png";
 import hyginic from "../assets/img/Hyginic_Poster.jpg";
-import NNPoster from "../assets/img/Juice/NN_Poster.jpg";
+import NNPoster from "../assets/img/Juice/NN_Poster.png";
+import dFruits from "../assets/img/Dry_Fruits.png";
 import { products } from "../data/products";
 //import "./ProductSlider.css";
 import ProductSlider from '../data/ProductSlider.jsx';
+import Spacer from '../components/Spacer.jsx';
 
 export default function HomePage() {
+    const handleViewProduct = (product) => {
+};
 
     return (
         <div>
@@ -30,7 +34,7 @@ export default function HomePage() {
             </div>
 
             {/* hero area */}
-            <div className="hero-area hero-bg" style={{ padding: '190px 0' }}>
+            {/* <div className="hero-area hero-bg" style={{ padding: '190px 0' }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-9 offset-lg-2 text-center">
@@ -58,11 +62,35 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+
+            <section class="hero-section">
+                <div class="hero-container">
+
+                    <div class="hero-content">
+                        {/* <span class="hero-tagline">NATIVE & NATURE</span>    */}
+                        <h1>Where Purity Feels Premium</h1>
+                        <p>
+                            Elite dry fruits and nuts chosen for those who expect the best.Sourced with care, crafted to deliver timeless quality and refined taste.
+                        </p>
+                        <div class="hero-buttons">
+                        <a href="#" class="btn-brand">Shop Now</a>
+                            <a href="#" class="btn-outline">Explore</a>
+                        </div>
+                    </div>
+
+                    <div class="hero-image">
+                        <img src={dFruits}alt="Fresh Juice" />
+                    </div>
+
+                </div>
+            </section>
 
             {/* product section */}
-            <ProductSlider products={products}></ProductSlider>
+            <Spacer height="50px" /> 
+            <ProductSlider products={products} onView={handleViewProduct}></ProductSlider>
             {/* advertisement section */}
+            <Spacer height="50px" /> 
             <div className="abt-section mb-150">
                 <div className="container">
                     <div className="row">
@@ -86,17 +114,24 @@ export default function HomePage() {
 
                             <div className="col-lg-6 col-md-12">
                                 <div className="abt-right">
-                                    <p className="top-sub">Since Year 2025</p>
-                                    <h2>We are <span className="orange-text">Native & Nature</span></h2>
-                                    <p>
-                                        At Native & Nature, we believe that freshness is not just a promise –
-                                        it’s our everyday practice. We specialize in freshly prepared juices,
-                                        made from farm-fresh vegetables and fruits sourced daily to ensure
-                                        the highest quality and nutrition.
+                                    <h2 style={{ color: "white" }}>
+                                        We are <span className="orange-text">Yaazhvi Traders</span>
+                                    </h2>
+                                    <p style={{ color: "#ffffff80" }}>
+                                         We delivering the finest quality dry fruits and nuts sourced naturally 
+                                        and packed with care. Our products bring the goodness of nature straight to 
+                                        your home, ensuring freshness, taste, and health in every bite. 
+                                        Experience premium, handpicked delights that you can trust and enjoy every day. 
+                                        From almonds to cashews and raisins, each product is carefully selected to 
+                                        guarantee quality and flavor. At Yaazhvi Traders, we are committed to bringing 
+                                        healthy, natural, and delicious snacks that your family will love.
                                     </p>
                                 </div>
-                                <a href="/about" className="boxed-btn mt-3">know more</a>
+                                <div className="hero-buttons">
+                                    <a href="/about" className="btn-brand">know more</a>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
